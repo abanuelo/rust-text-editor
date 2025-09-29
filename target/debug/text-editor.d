@@ -1,0 +1,1 @@
+/Users/abanuelo/personal/rust-text-editor/target/debug/text-editor: /Users/abanuelo/personal/rust-text-editor/src/editor/terminal.rs /Users/abanuelo/personal/rust-text-editor/src/editor.rs /Users/abanuelo/personal/rust-text-editor/src/main.rs
