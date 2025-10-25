@@ -12,10 +12,18 @@ impl Default for Buffer {
 
 impl Buffer {
     pub fn new() -> Self {
-        let mut buffer = Vec::new();
+        let buffer = Vec::new();
         Self { buffer }
     }
     pub fn is_empty(&self) -> bool {
         self.buffer.is_empty()
+    }
+    pub fn load(&mut self, path: &str) -> Result<(), std::io::Error> {
+        self.buffer.clear();
+        let file_contents = std::fs::read_to_string(path)?;
+        for line in file_contents.lines() {
+            self.buffer.push(String::from(line));
+        }
+        Ok(())
     }
 }
