@@ -13,7 +13,9 @@ impl Default for Buffer {
 impl Buffer {
     pub fn new() -> Self {
         let mut buffer = Vec::new();
-        buffer.push(String::from("Hello, World!"));
         Self { buffer }
+    }
+    pub fn is_empty(&self) -> bool {
+        self.buffer.is_empty()
     }
 }

@@ -30,6 +30,14 @@ impl View {
         Terminal::print("~")?;
         Ok(())
     }
+    pub fn load(&mut self, path: &str) -> Result<(), Error> {
+        self.buffer.buffer.clear();
+        let file_contents = std::fs::read_to_string(path)?;
+        for line in file_contents.lines() {
+            self.buffer.buffer.push(String::from(line));
+        }
+        Ok(())
+    }
 
     pub fn render(&self) -> Result<(), Error> {
         let Size { height, .. } = Terminal::size()?;
@@ -38,17 +46,22 @@ impl View {
             Terminal::clear_line()?;
             // we allow this since we don't care if our welcome message is put _exactly_ in the middle.
             // it's allowed to be a bit up or down
-            if let Some(line) = self.buffer.buffer.get(current_row) {
-                Terminal::print(line)?;
-                Terminal::print("\r\n")?;
-                continue;
-            }
-            #[allow(clippy::integer_division)]
-            if current_row == height / 3 {
-                self.draw_welcome_message()?;
+            if self.buffer.is_empty() {
+                #[allow(clippy::integer_division)]
+                if current_row == height / 3 {
+                    self.draw_welcome_message()?;
+                } else {
+                    self.draw_empty_row()?;
+                }
             } else {
-                self.draw_empty_row()?;
+                if let Some(line) = self.buffer.buffer.get(current_row) {
+                    Terminal::print(line)?;
+                    Terminal::print("\r\n")?;
+                } else {
+                    self.draw_empty_row()?;
+                }
             }
+
             if current_row.saturating_add(1) < height {
                 Terminal::print("\r\n")?;
             }
