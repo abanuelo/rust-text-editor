@@ -10,10 +10,5 @@ mod editor;
 use editor::Editor;
 
 fn main() {
-    let args: Vec<String> = std::env::args().collect();
-    let mut editor = Editor::default();
-    if let Some(first_arg) = args.get(1) {
-        editor.view.load(first_arg).unwrap();
-    }
-    editor.run();
+    Editor::default().run();
 }

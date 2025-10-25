@@ -1,12 +1,12 @@
-/Users/abanuelos/personal/rust-text-editor/target/debug/deps/text_editor-818770ee1fea7dca.d: src/main.rs src/editor.rs src/editor/terminal.rs src/editor/view/mod.rs src/editor/buffer/mod.rs
+/Users/abanuelos/personal/rust-text-editor/target/debug/deps/text_editor-818770ee1fea7dca.d: src/main.rs src/editor.rs src/editor/terminal.rs src/editor/view.rs src/editor/view/buffer.rs
 
-/Users/abanuelos/personal/rust-text-editor/target/debug/deps/libtext_editor-818770ee1fea7dca.rmeta: src/main.rs src/editor.rs src/editor/terminal.rs src/editor/view/mod.rs src/editor/buffer/mod.rs
+/Users/abanuelos/personal/rust-text-editor/target/debug/deps/libtext_editor-818770ee1fea7dca.rmeta: src/main.rs src/editor.rs src/editor/terminal.rs src/editor/view.rs src/editor/view/buffer.rs
 
 src/main.rs:
 src/editor.rs:
 src/editor/terminal.rs:
-src/editor/view/mod.rs:
-src/editor/buffer/mod.rs:
+src/editor/view.rs:
+src/editor/view/buffer.rs:
 
 # env-dep:CARGO_PKG_NAME=text-editor
 # env-dep:CARGO_PKG_VERSION=0.1.0
